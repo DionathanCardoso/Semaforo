@@ -7,15 +7,19 @@ const TrafficLight = (event) => {
     turnOn[event.target.id]();
 }
 
-const nexIndex = () => colorIndex = colorIndex < 2 ? ++colorIndex : 0;
 
 const changeColor = () => {
     const colors = ['red', 'yellow', 'green'];
     const color = colors[colorIndex];
     turnOn[color]();
+
+    // Alterado de index da arrow colors.
+    function nexIndex() {
+        colorIndex = colorIndex < 2 ? ++colorIndex : 0;
+    }
     nexIndex();
 }
-
+//Objetos de localização da cor.
 const turnOn = {
     'red': () => img.src = './img/vermelho.png',
     'yellow': () => img.src = './img/amarelo.png',
